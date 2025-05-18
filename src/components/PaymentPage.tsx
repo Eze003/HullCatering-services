@@ -31,6 +31,7 @@ const PaymentPage: React.FC = () => {
     );
     setPaymentComplete(true);
     clearCart();
+    router.push("/payment/success");
   };
 
   useEffect(() => {

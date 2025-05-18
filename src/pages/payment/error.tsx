@@ -1,9 +1,14 @@
+"use client";
+
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 const PaymentError = () => {
+  const params = useSearchParams();
+
   const errorDetails = {
-    error: "Payment gateway timeout",
-    reference: "ERR_789XYZ",
+    error: params?.get("message") || "Unknown error occurred",
+    reference: params?.get("code") || "N/A",
     timestamp: new Date().toLocaleString(),
   };
 
@@ -52,7 +57,7 @@ const PaymentError = () => {
                 </p>
                 <p>
                   <span className="font-medium">Time:</span>{" "}
-                  {errorDetails.timestamp}
+                  {errorDetails.timestamp || "Loading..."}
                 </p>
               </div>
             </div>
@@ -61,7 +66,7 @@ const PaymentError = () => {
 
         <div className="mt-6 text-center">
           <Link
-            href="/checkout"
+            href="/payment"
             className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
             Try Payment Again

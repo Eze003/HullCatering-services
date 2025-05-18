@@ -11,7 +11,7 @@ export default function PayPalProviderWrapper({
     <PayPalScriptProvider
       options={{
         clientId:
-          "AbtSt71jXUTzBs4JxiUzs80U7OqNURaGjzJ7BURqJPoJ3F-GZpwLDkb7Ww2JVu52YdpDwVpTxiattig4",
+          "ASvsybypINh7M5S7EUHlFSX6RX-P18TvDiCsgbWh18w3cBIYK0oYv8Wt_kFeJ5ISKs7wRdqm0J9jmMlD",
         currency: "USD",
       }}
     >

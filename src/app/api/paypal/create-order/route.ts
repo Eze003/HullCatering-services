@@ -14,7 +14,7 @@ export async function POST(request: Request) {
 
     // Step 1: Get access token from PayPal
     const auth = Buffer.from(
-      `AbtSt71jXUTzBs4JxiUzs80U7OqNURaGjzJ7BURqJPoJ3F-GZpwLDkb7Ww2JVu52YdpDwVpTxiattig4:EDGwN8PNIsqBWrWayE4yV_20MJJj7WfBe4gnJwkJ8yuYxcf853L-KUB7INA3mtgveihWfHwF1esud6fK`
+      `ASvsybypINh7M5S7EUHlFSX6RX-P18TvDiCsgbWh18w3cBIYK0oYv8Wt_kFeJ5ISKs7wRdqm0J9jmMlD:ELZzWyYxm00AUrvgLKR_MPwY_D6Zmcsmk6Wk0pyYKF425kwKHVX0V_h5klgSc6873CmUL61MsfAr3GVG`
     ).toString("base64");
 
     const tokenRes = await fetch(

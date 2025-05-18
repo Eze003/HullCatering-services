@@ -1,1 +1,1 @@
-{"/_app":"pages/_app.js","/payment/error":"pages/payment/error.html","/payment/cancelled":"pages/payment/cancelled.html","/_error":"pages/_error.js","/_document":"pages/_document.js","/404":"pages/404.html"}
+{"/_app":"pages/_app.js","/_error":"pages/_error.js","/payment/error":"pages/payment/error.html","/payment/cancelled":"pages/payment/cancelled.html","/payment/success":"pages/payment/success.html","/_document":"pages/_document.js","/404":"pages/404.html"}

@@ -2,6 +2,7 @@
 
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { useCart } from "@/context/CartContext";
+import { useRouter } from "next/navigation";
 
 interface PaypalButtonProps {
   amount: number;
@@ -10,7 +11,7 @@ interface PaypalButtonProps {
 
 const PaypalButton: React.FC<PaypalButtonProps> = ({ amount, onSuccess }) => {
   const { items } = useCart();
-
+  const router = useRouter();
   const createOrder = async (
     data: Record<string, unknown>,
     actions: any
@@ -73,11 +74,25 @@ const PaypalButton: React.FC<PaypalButtonProps> = ({ amount, onSuccess }) => {
         }}
         onCancel={(err) => {
           console.error("PayPal Cancelled:", err);
-          window.location.href = "/payment/cancelled";
+          router.push("/payment/cancelled");
         }}
         onError={(err) => {
           console.error("PayPal Error:", err);
-          window.location.href = "/payment/error";
+
+          const errorMessage = encodeURIComponent(
+            typeof err === "object" &&
+              err !== null &&
+              "message" in err &&
+              typeof (err as any).message === "string"
+              ? (err as { message: string }).message
+              : String(err)
+          );
+
+          const errorCode = encodeURIComponent("ERR_PAYPAL_FAILURE");
+
+          router.push(
+            `/payment/error?message=${errorMessage}&code=${errorCode}`
+          );
         }}
       />
     </div>
