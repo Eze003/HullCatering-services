@@ -23,6 +23,7 @@ const PaypalButton: React.FC<PaypalButtonProps> = ({ amount, onSuccess }) => {
       });
 
       const order = await response.json();
+      console.log({ order });
 
       if (!response.ok || !order.id) {
         throw new Error("Failed to create PayPal order");
@@ -47,7 +48,7 @@ const PaypalButton: React.FC<PaypalButtonProps> = ({ amount, onSuccess }) => {
       });
 
       const orderData = await response.json();
-
+      console.log({ approve: orderData });
       if (!response.ok || orderData.status !== "COMPLETED") {
         throw new Error("PayPal payment not completed");
       }
@@ -69,6 +70,14 @@ const PaypalButton: React.FC<PaypalButtonProps> = ({ amount, onSuccess }) => {
           color: "gold",
           shape: "rect",
           label: "pay",
+        }}
+        onCancel={(err) => {
+          console.error("PayPal Cancelled:", err);
+          window.location.href = "/payment/cancelled";
+        }}
+        onError={(err) => {
+          console.error("PayPal Error:", err);
+          window.location.href = "/payment/error";
         }}
       />
     </div>

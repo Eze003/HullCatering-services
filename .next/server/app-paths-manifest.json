@@ -1,7 +1,8 @@
 {
-  "/not-found": "app/not-found.js",
-  "/page": "app/page.js",
+  "/_not-found": "app/_not-found.js",
   "/cart/page": "app/cart/page.js",
+  "/page": "app/page.js",
+  "/api/paypal/capture-order/route": "app/api/paypal/capture-order/route.js",
   "/payment/page": "app/payment/page.js",
   "/api/paypal/create-order/route": "app/api/paypal/create-order/route.js"
 }
